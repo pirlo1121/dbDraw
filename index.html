@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dbDraw · MongoDB visual</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="layout">
+    <!-- Parte izquierda: interfaz gráfica -->
+    <section class="panel gui">
+      <header class="gui-header">
+        <div class="logo">
+          <span class="leaf">🍃</span>
+          <div>
+            <h1>dbDraw</h1>
+            <p>Interactúa con MongoDB de forma visual</p>
+          </div>
+        </div>
+        <div class="current-db">
+          Base de datos actual: <strong id="currentDb">test</strong>
+        </div>
+      </header>
+
+      <div class="actions" id="actions"></div>
+
+      <form class="action-form" id="actionForm" hidden>
+        <div class="form-head">
+          <h2 id="formTitle"></h2>
+          <button type="button" class="btn-ghost" id="formClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="form-desc" id="formDesc"></p>
+        <div class="form-fields" id="formFields"></div>
+        <button type="submit" class="btn-primary">Ejecutar ▶</button>
+      </form>
+
+      <div class="explorer">
+        <h3>Explorador</h3>
+        <ul id="explorer" class="tree"></ul>
+      </div>
+    </section>
+
+    <!-- Parte derecha: terminal -->
+    <section class="panel terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">mongosh — mongodb://localhost:27017</span>
+        <button class="btn-ghost small" id="clearTerminal">Limpiar</button>
+      </div>
+      <div class="terminal-body" id="terminal"></div>
+    </section>
+  </main>
+
+  <datalist id="collectionList"></datalist>
+  <script src="app.js"></script>
+</body>
+</html>
